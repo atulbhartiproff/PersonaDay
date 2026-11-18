@@ -1,42 +1,20 @@
-import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { NativeTabs } from 'expo-router/native-tabs'
 
-export default function RootLayout() {
+export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: "#E23744",
-        tabBarInactiveTintColor: "#888888",
-      }}
-    >
-      <Tabs.Screen
-        name="activity"
-        options={{
-          title: "Activity",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="walk-outline" color={String(color)} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="social-link"
-        options={{
-          title: "Social Link",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="link-outline" color={String(color)} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="tarots"
-        options={{
-          title: "Tarots",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="send-outline" color={String(color)} size={size} />
-          ),
-        }}
-      />
-    </Tabs>
-  );
+    <NativeTabs>
+      <NativeTabs.Trigger name="activity">
+        <NativeTabs.Trigger.Label>Activity</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="figure.walk" md="directions_walk"/>
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="social-link">
+        <NativeTabs.Trigger.Label>Social Link</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="person.2" md="groups"/>
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="tarots">
+        <NativeTabs.Trigger.Label>Tarots</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="sparkles" md="auto_awesome"/>
+      </NativeTabs.Trigger>
+    </NativeTabs>
+  )
 }
